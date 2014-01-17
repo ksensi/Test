@@ -7,12 +7,12 @@ package com.test;
  * Time: 12:55
  * To change this template use File | Settings | File Templates.
  */
-public class Employer {
+public class Employer implements Comparable<Employer> {
     public String name;
     public String company_name;
     public int employer_count;
 
-    public Employer(){
+    public Employer() {
         super();
     }
 
@@ -77,5 +77,26 @@ public class Employer {
         result = 31 * result + (company_name != null ? company_name.hashCode() : 0);
         result = 31 * result + employer_count;
         return result;
+    }
+
+    @Override
+    public int compareTo(Employer o) {
+        if (this.getName().equals(o.getName())) {
+            if (this.getEmployer_count() < o.getEmployer_count()) {
+                return -1;
+            }
+            if (this.getEmployer_count() > o.getEmployer_count()) {
+                return 1;
+            }
+            if (this.getEmployer_count() == o.getEmployer_count()) {
+                return 0;
+            }
+
+        }
+        if (this.getName().compareTo(o.getName()) < 0) {
+            return -1;
+        }
+        return 1;
+
     }
 }

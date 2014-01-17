@@ -31,12 +31,16 @@ public class EmployerTest {
 
     @Before
     public void prepareEmployee() {
-        Employer emp = new Employer("Kseniya", "RAE", 12);
-        Employer emp1 = new Employer("Rinat", "POI", 10);
-        Employer emp2 = new Employer("Masha", "POTR", 5);
+        Employer emp = new Employer("A", "RAE", 1);
+        Employer emp1 = new Employer("B", "POI", 2);
+        Employer emp2 = new Employer("C", "POTR", 1);
+        Employer emp3 = new Employer("A", "POTR", 2);
+        Employer emp4 = new Employer("C", "POTR", 2);
         employers.add(emp);
         employers.add(emp1);
         employers.add(emp2);
+        employers.add(emp3);
+        employers.add(emp4);
     }
 
     @After
@@ -45,31 +49,19 @@ public class EmployerTest {
     }
 
     @Test
-    public void testSortName() throws SQLException {
-        Employer emp = new Employer("Kseniya", "RAE", 12);
-        Employer emp1 = new Employer("Rinat", "POI", 10);
-        Employer emp2 = new Employer("Masha", "POTR", 5);
+    public void testSortEmployer() throws SQLException {
+        Employer emp = new Employer("A", "RAE", 1);
+        Employer emp1 = new Employer("B", "POI", 2);
+        Employer emp2 = new Employer("C", "POTR", 1);
+        Employer emp3 = new Employer("A", "POTR", 2);
+        Employer emp4 = new Employer("C", "POTR", 2);
         List<Employer> employersTemp = new ArrayList<>();
         employersTemp.add(emp);
-        employersTemp.add(emp2);
+        employersTemp.add(emp3);
         employersTemp.add(emp1);
-        test.sortName(employers);
-        for (int i = 0; i < employers.size(); i++){
-            assertEquals(employers.get(i),employersTemp.get(i));
-        }
-
-    }
-
-    @Test
-    public void testSortEmployerCount() throws SQLException {
-        Employer emp = new Employer("Kseniya", "RAE", 12);
-        Employer emp1 = new Employer("Rinat", "POI", 10);
-        Employer emp2 = new Employer("Masha", "POTR", 5);
-        List<Employer> employersTemp = new ArrayList<>();
         employersTemp.add(emp2);
-        employersTemp.add(emp1);
-        employersTemp.add(emp);
-        test.sortEmployerCount(employers);
+        employersTemp.add(emp4);
+        test.sortEmployer(employers);
         for (int i = 0; i < employers.size(); i++){
             assertEquals(employers.get(i),employersTemp.get(i));
         }

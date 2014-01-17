@@ -10,34 +10,9 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 public class Test1 {
-    public void sortName (List<Employer> employers){
-        for (int j = 0; j < employers.size(); j++) {
-            for (int i = j + 1; i < employers.size(); i++) {
-                if (employers.get(i).getName().compareTo(employers.get(j).getName()) < 0) {
-                    Employer temp = employers.get(j);
-                    employers.set(j, employers.get(i));
-                    employers.set(i, temp);
-
-
-                }
-            }
-        }
-    }
-    public void sortEmployerCount (List<Employer> employers){
-        for (int j = 0; j < employers.size(); j++) {
-            for (int i = j + 1; i < employers.size(); i++) {
-                if (employers.get(i).getEmployer_count() < employers.get(j).getEmployer_count()) {
-                    Employer temp = employers.get(j);
-                    employers.set(j, employers.get(i));
-                    employers.set(i, temp);
-
-
-                }
-            }
-        }
+    public void sortEmployer (List<Employer> employers){
+         Collections.sort(employers);
     }
 
-    public static void main(String[] args) {
 
-    }
 }
